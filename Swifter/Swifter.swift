@@ -140,7 +140,7 @@ public class Swifter {
         let jsonSuccessHandler: SwifterHTTPRequest.SuccessHandler = {
             data, response in
 
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 var error: NSError?
                 if let jsonResult = JSON.parseJSONData(data, error: &error) {
                     dispatch_async(dispatch_get_main_queue()) {
